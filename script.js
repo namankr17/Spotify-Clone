@@ -2,7 +2,7 @@ console.log("Created by Naman")
 //Created by Naman
 //function to fetch songs folders
 async function getFolders(){
-    let folders1 = [`songs/Arijit Singh/`,`songs/Happy Beats/`,`songs/Old is Gold/`,`songs/lofi chill/`]
+    let folders1 = [`songs/Arijit Singh`,`songs/Happy Beats`,`songs/Old is Gold`,`songs/lofi chill`]
     //For website
     return folders1
 
