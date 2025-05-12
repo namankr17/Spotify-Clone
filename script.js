@@ -65,6 +65,7 @@ async function main(){
     let track = new Audio(songs[0]) //stores current song
     track.volume = 0.5
     let current = 0         //stores id of currently playing song from array "songs"
+    console.log(songs[current])
     document.querySelector(".info").innerHTML = songs[current].split("_")[1].replaceAll("%20"," ")
 
     for (const e of songs) {
