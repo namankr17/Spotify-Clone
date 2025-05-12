@@ -2,7 +2,7 @@ console.log("Created by Naman")
 //Created by Naman
 //function to fetch songs folders
 async function getFolders(){
-    let f = await fetch(`public`)
+    let f = await fetch(`songs`)
     let g = await f.text()
     console.log(g)
     let div = document.createElement("div")
@@ -11,7 +11,7 @@ async function getFolders(){
     let folders = []
     for (let i = 0; i < h.length; i++) {
         const e = h[i];
-        if(!e.href.endsWith(`.htaccess`) && e.href.includes("public")) 
+        if(!e.href.endsWith(`.htaccess`) && e.href.includes("songs")) 
             folders.push(e.href)
     }
     return folders
