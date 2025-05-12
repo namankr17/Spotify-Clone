@@ -4,6 +4,7 @@ console.log("Created by Naman")
 async function getFolders(){
     let f = await fetch(`assets`)
     let g = await f.text()
+    console.log(g)
     let div = document.createElement("div")
     div.innerHTML = g
     let h = div.querySelectorAll("a[href]")
