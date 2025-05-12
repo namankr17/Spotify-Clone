@@ -2,7 +2,7 @@ console.log("Created by Naman")
 //Created by Naman
 //function to fetch songs folders
 async function getFolders(){
-    let f = await fetch(`songs`)
+    let f = await fetch(`public/songs`)
     let g = await f.text()
     let div = document.createElement("div")
     div.innerHTML = g
