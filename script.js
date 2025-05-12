@@ -2,10 +2,6 @@ console.log("Created by Naman")
 //Created by Naman
 //function to fetch songs folders
 async function getFolders(){
-    let folders1 = [`songs/Arijit Singh`,`songs/Happy Beats`,`songs/Old is Gold`,`songs/lofi chill`]
-    //For website
-    return folders1
-
     let f = await fetch(`public/songs`)
     let g = await f.text()
     console.log(g)
@@ -23,16 +19,6 @@ async function getFolders(){
 
 //function to fetch the songs
 async function getSongs(folder){
-    let songs1 = [`songs/Arijit Singh/Arijit Singh_Apna Bana Le.mp3`,`songs/Arijit Singh/Arijit Singh_Humdard.mp3`,`songs/Arijit Singh/Arijit Singh_Kesariya.mp3`]
-    let songs2 = [`songs/Happy Beats/Aditya Bhardwaj_BYE.mp3`,`songs/Happy Beats/Arijit singh_Woh Din.mp3`]
-    let songs3 = [`songs/Old is Gold/Kishore Kumar_Mere Samne Wali Khidki Mein.mp3`,`songs/Old is Gold/Kishore Kumar_Zindagi Ke Safar Mein.mp3`,`songs/Old is Gold/Mukesh_Kahin Door Jab Din Dhal Jaye.mp3`]
-    let songs4 = [`songs/lofi chill/Amit Trivedi_Namo-Namo.mp3`,`songs/lofi chill/Anubhav Jain_Alag-Aasmaan.mp3`,`songs/lofi chill/The Local Train_Choo Lo.mp3`,`songs/lofi chill/Tony Kakkar_Zindagi Bata De.mp3`]
-    // For website
-    if(folder.includes("Arijit")) return songs1
-    if(folder.includes("Happy")) return songs2
-    if(folder.includes("Old")) return songs3
-    if(folder.includes("lofi")) return songs4
-
     let a = await fetch(folder)
     let b = await a.text()
     let div = document.createElement("div")
