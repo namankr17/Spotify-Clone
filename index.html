@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="close"><img src="images/close.svg" alt="close"></div>
+            <div class="head">
+                <img id="logo" src="images/logo.svg" alt="logo">
+                <ul>
+                    <li class="font1"><img class="img-fit" src="images/home.svg" alt="home">Home</li>
+                    <li class="font1"><img class="img-fit" src="images/search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+            <div class="library">
+                <div class="font1 lib-head">
+                    <div class="flex your-lib"><img class="img-fit" src="images/library.svg" alt="library">Your Library
+                    </div>
+                    <img class="add" src="images/plus.svg" alt="plus">
+                </div>
+                <div class="song-lib">
+                    <ul class="flex">
+                        <!-- <li class="flex">
+                            <img src="images/music.svg" alt="music">
+                            <div class="song-info">
+                                <div class="name font1">Alag-Aasman.mp3</div>
+                                <div class="artist font2">Anubhav Jain</div>
+                            </div>
+                            <img src="images/play.svg" alt="play">
+                        </li> -->
+                        
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div class="links flex">
+                        <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                        <div><a href="https://www.spotify.com/in-en/safetyandprivacy/"><span>Safety and Privacy Center</span></a></div>
+                        <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a></div>
+                        <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a></div>
+                        <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                        <div><a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a></div>
+                    </div>
+                    <button class="flex"><img src="images/lang.svg" alt="language">English</button>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="header flex">
+                <div class="nav flex">
+                    <img class="menu" src="images/menu.svg" alt="menu">
+                    <button class="backward flex"><img src="images/left.svg" alt="left"></button>
+                    <button class="forward flex"><img src="images/right.svg" alt="right"></button>
+                </div>
+                <div class="buttons flex">
+                    <button class="font1 sign">Sign up</button>
+                    <button class="font1 log">Log in</button>
+                </div>
+            </div>
+            <div class="playlists">
+                <h1>Spotify Playlists</h1>
+                <div class="container">
+                    <!-- <div class="card">
+                        <img src="https://i.scdn.co/image/ab676161000051740261696c5df3be99da6ed3f3" alt="card image">
+                        <div class="player flex"><img src="images/player.svg" alt="player"></div>
+                        <div class="font1 name">Arijit Singh</div>
+                        <div class="font2 description">Artist</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="playback flex">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                <div class="info font1"></div>
+                <div class="songbtn">
+                    <button id="previous"><img src="images/previous.svg" alt="previous"></button>
+                    <button id="pause/play"><img src="images/play.svg" alt="pause/play"></button>
+                    <button id="next"><img src="images/next.svg" alt="next"></button>
+                </div>
+                <div class="timing font2 flex"><div class="volume flex"><img src="images/volume.svg" alt="volume"><input type="range" name="volume" class="volumebar"></div><div class="time">00:00/00:00</div></div>
+            </div>
+            <div class="separation"></div>
+            <div class="foot font2">&copy; Created by Naman</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

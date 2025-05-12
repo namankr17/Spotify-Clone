@@ -1,0 +1,15 @@
+.font1{
+    font-weight: 600;
+    font-size: 15px;
+}
+.font2{
+    font-weight: 400;
+    font-size: 14px;
+    color: #c9c9c9;
+}
+.img-fit{
+    width: 24px;
+}
+.flex{
+    display: flex;
+}
