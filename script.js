@@ -1,10 +1,15 @@
 console.log("Created by Naman")
+
 //Created by Naman
 //function to fetch songs folders
-async function getFolders(){
+async function getFolders(prefix){
+    
+    //For website
+    let fld = [prefix+'Arijit Singh/',prefix+'Happy Beats/',prefix+'lofi chill/',prefix+'Old is Gold/']
+    return fld;
+
     let f = await fetch(`public/songs`)
     let g = await f.text()
-    console.log(g)
     let div = document.createElement("div")
     div.innerHTML = g
     let h = div.querySelectorAll("a[href]")
@@ -19,6 +24,25 @@ async function getFolders(){
 
 //function to fetch the songs
 async function getSongs(folder){
+
+    //For website
+    if(folder.includes('Arijit')){
+        let songs1 = [folder+"Arijit Singh_Apna Bana Le.mp3",folder+"Arijit Singh_Humdard.mp3",folder+"Arijit Singh_Kesariya.mp3"]
+        return songs1
+    }
+    if(folder.includes('Happy')){
+        let songs1 = [folder+"Aditya Bhardwaj_BYE.mp3",folder+"Arijit singh_Woh Din.mp3"]
+        return songs1
+    }
+    if(folder.includes('lofi')){
+        let songs1 = [folder+"Amit Trivedi_Namo-Namo.mp3",folder+"Anubhav Jain_Alag-Aasmaan.mp3",folder+"The Local Train_Choo Lo.mp3",folder+"Tony Kakkar_Zindagi Bata De.mp3"]
+        return songs1
+    }
+    if(folder.includes('Old')){
+        let songs1 = [folder+"Kishore Kumar_Mere Samne Wali Khidki Mein.mp3",folder+"Kishore Kumar_Zindagi Ke Safar Mein.mp3",folder+"Mukesh_Kahin Door Jab Din Dhal Jaye.mp3"]
+        return songs1
+    }
+
     let a = await fetch(folder)
     let b = await a.text()
     let div = document.createElement("div")
@@ -46,7 +70,13 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function main(){
-    let folders = await getFolders()
+
+    let xyz = await fetch('public/songs/Arijit Singh/cover.jpeg')
+    let prefix = xyz.url.split('Arijit')[0]
+    console.log(prefix)
+    
+
+    let folders = await getFolders(prefix)
 
     for (const i of folders) {
         let j = await fetch(i+"info.json")
@@ -66,7 +96,6 @@ async function main(){
     let track = new Audio(songs[0]) //stores current song
     track.volume = 0.5
     let current = 0         //stores id of currently playing song from array "songs"
-    console.log(songs[current])
     document.querySelector(".info").innerHTML = songs[current].split("_")[1].replaceAll("%20"," ")
 
     for (const e of songs) {
@@ -84,7 +113,26 @@ async function main(){
                         </li>`
         document.querySelector("ul.flex").innerHTML = document.querySelector("ul.flex").innerHTML + li
     }
-
+    
+    //Event listener to play songs on click
+    let lis = document.querySelector(".song-lib").getElementsByTagName("li");
+    // console.log(lis)
+    let arr = Array.from(lis)
+    // console.log(arr)
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("click",(e)=>{
+            let ele = e.target
+            while(ele.tagName != 'LI') ele = ele.parentElement;
+            // console.log(ele)
+            let ind = arr.indexOf(ele)
+            // console.log(ind)
+            track.src = songs[ind];
+            current = ind;
+            track.play();
+            document.querySelector(".info").innerHTML = songs[current].split("_")[1].replaceAll("%20"," ")
+            document.getElementById("pause/play").querySelector("img").src = "images/pause.svg"
+        })
+    }
     //Playlist Change
     let fs = document.querySelector(".container").getElementsByClassName("card")
     for (let i = 0; i < fs.length; i++) {
@@ -102,33 +150,41 @@ async function main(){
                 let nam = n.split("_")
                 nam[1] = nam[1].replace(".mp3","")
                 let li = `<li class="flex">
-                                    <img src="images/music.svg" alt="music">
-                                    <div class="song-info">
-                                        <div class="name font1">${nam[1]}</div>
-                                        <div class="artist font2">${nam[0]}</div>
-                                    </div>
-                                    <img src="images/play.svg" alt="play">
-                                </li>`
+                <img src="images/music.svg" alt="music">
+                <div class="song-info">
+                <div class="name font1">${nam[1]}</div>
+                <div class="artist font2">${nam[0]}</div>
+                </div>
+                <img src="images/play.svg" alt="play">
+                </li>`
                 document.querySelector("ul.flex").innerHTML = document.querySelector("ul.flex").innerHTML + li
             }
-
+            
             track.play()
             document.getElementById("pause/play").querySelector("img").src = "images/pause.svg"
+            //Event listener to play songs on click
+            lis = document.querySelector(".song-lib").getElementsByTagName("li");
+            // console.log(lis)
+            arr = Array.from(lis)
+            // console.log(arr)
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].addEventListener("click",(e)=>{
+                    let ele = e.target
+                    while(ele.tagName != 'LI') ele = ele.parentElement;
+                    // console.log(ele)
+                    let ind = arr.indexOf(ele)
+                    // console.log(ind)
+                    track.src = songs[ind];
+                    current = ind;
+                    track.play();
+                    document.querySelector(".info").innerHTML = songs[current].split("_")[1].replaceAll("%20"," ")
+                    document.getElementById("pause/play").querySelector("img").src = "images/pause.svg"
+                })
+            }
         })
     }
 
 
-    //Event listener to play songs on click
-    let lis = document.querySelector(".song-lib").getElementsByTagName("li")
-    for (let i = 0; i < lis.length; i++) {
-        lis[i].addEventListener("click",()=>{
-            track.src = songs[i]
-            current = i
-            track.play()
-            document.querySelector(".info").innerHTML = songs[current].split("_")[1].replaceAll("%20"," ")
-            document.getElementById("pause/play").querySelector("img").src = "images/pause.svg"
-        })
-    }
     //Event listener for pause/play
     document.getElementById("pause/play").addEventListener("click",()=>{
         if(track.paused){
