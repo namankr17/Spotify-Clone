@@ -1,4 +1,4 @@
-# 🎵 Spotify UI Clone
+# 🎵 Spotify UI Clone + Music Player
 
 A responsive and interactive clone of Spotify's user interface, built using **HTML**, **CSS**, and **JavaScript**. This project emulates the core functionalities of Spotify's web player, including a fully functional music player with preloaded songs.
 
